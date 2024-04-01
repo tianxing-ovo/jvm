@@ -1,4 +1,4 @@
-package test;
+package methodarea;
 
 import jdk.internal.org.objectweb.asm.ClassWriter;
 import jdk.internal.org.objectweb.asm.Opcodes;
@@ -24,6 +24,8 @@ public class MethodAreaMemoryOverflow extends ClassLoader {
                 classLoader.defineClass(className, bytes, 0, bytes.length);
             }
         } catch (OutOfMemoryError e) {
+            // 元空间内存溢出
+            e.printStackTrace();
             System.out.println(count);
         }
     }

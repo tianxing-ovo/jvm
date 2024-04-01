@@ -1,4 +1,4 @@
-package test;
+package stringpool;
 
 /**
  * 字符串延迟加载

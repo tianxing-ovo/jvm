@@ -1,4 +1,4 @@
-package test;
+package stringpool;
 
 /**
  * 字符串常量池
