@@ -12,6 +12,7 @@ public class StringPoolPosition {
      * jdk6: 位于永久代  参数设置: -XX:MaxPermSize=10m
      * jdk8: 位于堆  参数设置: -Xmx5m -XX:-UseGCOverheadLimit
      */
+    @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         int count = 0;
@@ -21,8 +22,9 @@ public class StringPoolPosition {
                 count++;
             }
         } catch (OutOfMemoryError e) {
-            // 堆内存溢出
+            // java.lang.OutOfMemoryError: Java heap space
             e.printStackTrace();
+            // count = 75399
             System.out.println(count);
         }
     }

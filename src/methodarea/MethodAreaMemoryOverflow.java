@@ -8,6 +8,9 @@ import jdk.internal.org.objectweb.asm.Opcodes;
  */
 public class MethodAreaMemoryOverflow extends ClassLoader {
 
+    /**
+     * 参数设置: -XX:MaxMetaspaceSize=10m
+     */
     public static void main(String[] args) {
         // 生成类的二进制字节码,0表示默认的类版本和类访问标志
         ClassWriter classWriter = new ClassWriter(0);
@@ -24,8 +27,9 @@ public class MethodAreaMemoryOverflow extends ClassLoader {
                 classLoader.defineClass(className, bytes, 0, bytes.length);
             }
         } catch (OutOfMemoryError e) {
-            // 元空间内存溢出
+            // java.lang.OutOfMemoryError: Metaspace
             e.printStackTrace();
+            // count = 745
             System.out.println(count);
         }
     }

@@ -7,19 +7,23 @@ import java.util.List;
  * 堆内存溢出
  */
 public class HeapMemoryOverflow {
+
     @SuppressWarnings({"InfiniteLoopStatement", "MismatchedQueryAndUpdateOfCollection"})
     public static void main(String[] args) {
-        int i = 0;
+        int count = 0;
         List<String> list = new ArrayList<>();
         String str = "hello";
         try {
             while (true) {
                 list.add(str);
                 str = str + str;
-                i++;
+                count++;
             }
         } catch (OutOfMemoryError e) {
-            System.out.println(i);
+            // java.lang.OutOfMemoryError: Java heap space
+            e.printStackTrace();
+            // count = 26
+            System.out.println(count);
         }
     }
 }
