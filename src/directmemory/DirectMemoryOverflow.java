@@ -22,7 +22,7 @@ public class DirectMemoryOverflow {
             }
         } catch (OutOfMemoryError e) {
             // java.lang.OutOfMemoryError: Direct buffer memory
-            e.printStackTrace();
+            e.printStackTrace(System.err);
             // count = 35
             System.out.println(count);
         }

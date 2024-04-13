@@ -21,7 +21,7 @@ public class HeapMemoryOverflow {
             }
         } catch (OutOfMemoryError e) {
             // java.lang.OutOfMemoryError: Java heap space
-            e.printStackTrace();
+            e.printStackTrace(System.err);
             // count = 26
             System.out.println(count);
         }

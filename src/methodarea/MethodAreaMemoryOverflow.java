@@ -4,7 +4,7 @@ import jdk.internal.org.objectweb.asm.ClassWriter;
 import jdk.internal.org.objectweb.asm.Opcodes;
 
 /**
- * 方法区内存溢出
+ * 方法区(元空间)内存溢出
  */
 public class MethodAreaMemoryOverflow extends ClassLoader {
 
@@ -28,7 +28,7 @@ public class MethodAreaMemoryOverflow extends ClassLoader {
             }
         } catch (OutOfMemoryError e) {
             // java.lang.OutOfMemoryError: Metaspace
-            e.printStackTrace();
+            e.printStackTrace(System.err);
             // count = 745
             System.out.println(count);
         }
