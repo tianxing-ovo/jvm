@@ -23,7 +23,7 @@ public class StringPoolPosition {
             }
         } catch (OutOfMemoryError e) {
             // java.lang.OutOfMemoryError: Java heap space
-            e.printStackTrace();
+            e.printStackTrace(System.err);
             // count = 75399
             System.out.println(count);
         }
