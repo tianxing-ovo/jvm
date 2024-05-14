@@ -1,7 +1,10 @@
 package exercise;
 
 
-@SuppressWarnings({"NumericOverflow", "divzero", "finally", "ReturnInsideFinallyBlock", "UnreachableCode"})
+/**
+ * 从字节码角度分析finally中return
+ */
+@SuppressWarnings({"divzero", "finally", "ReturnInsideFinallyBlock", "UnreachableCode", "NumericOverflow"})
 public class Demo6 {
     public static void main(String[] args) {
         int result = test();

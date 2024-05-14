@@ -1,6 +1,9 @@
 package exercise;
 
 
+/**
+ * 从字节码角度分析try中return
+ */
 public class Demo7 {
     public static void main(String[] args) {
         int result = test();

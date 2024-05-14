@@ -10,6 +10,7 @@ public class Polymorphic {
     /**
      * 参数设置: -XX:-UseCompressedOops -XX:-UseCompressedClassPointers
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void main(String[] args) throws IOException {
         Animal animal = new Dog();
         animal.eat();
