@@ -1,0 +1,36 @@
+package com.ltx.jmm;
+
+import org.openjdk.jcstress.annotations.*;
+import org.openjdk.jcstress.infra.results.I_Result;
+
+/**
+ * 有序性(Ordering)
+ * 主类: org.openjdk.jcstress.Main
+ * 程序实参: -t com.ltx.jmm.Ordering
+ *
+ * @author tianxing
+ */
+@JCStressTest
+@Outcome(id = {"1", "4"}, expect = Expect.ACCEPTABLE, desc = "accept")
+@Outcome(id = "0", expect = Expect.ACCEPTABLE_INTERESTING, desc = "interesting")
+@State
+public class Ordering {
+
+    private int num = 0;
+    private volatile boolean flag = false;
+
+    @Actor
+    public void actor1(I_Result result) {
+        if (flag) {
+            result.r1 = num + num;
+        } else {
+            result.r1 = 1;
+        }
+    }
+
+    @Actor
+    public void actor2(I_Result result) {
+        num = 2;
+        flag = true;
+    }
+}

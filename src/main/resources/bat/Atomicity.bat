@@ -1,0 +1,1 @@
+for /L %%n in (1, 1, 10) do java -cp D:\code\jvm\target\classes com.ltx.jmm.Atomicity

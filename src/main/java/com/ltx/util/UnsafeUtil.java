@@ -16,7 +16,7 @@ public class UnsafeUtil {
     /**
      * 反射获取Unsafe对象
      */
-    private static Unsafe getUnsafe() {
+    public static Unsafe getUnsafe() {
         try {
             Field field = Unsafe.class.getDeclaredField("theUnsafe");
             field.setAccessible(true);
