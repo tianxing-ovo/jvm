@@ -1,12 +1,11 @@
 package com.ltx.jmm;
 
+import org.openjdk.jcstress.Main;
 import org.openjdk.jcstress.annotations.*;
 import org.openjdk.jcstress.infra.results.I_Result;
 
 /**
  * 有序性(Ordering)
- * 主类: org.openjdk.jcstress.Main
- * 程序实参: -t com.ltx.jmm.Ordering
  *
  * @author tianxing
  */
@@ -17,7 +16,11 @@ import org.openjdk.jcstress.infra.results.I_Result;
 public class Ordering {
 
     private int num = 0;
-    private volatile boolean flag = false;
+    private boolean flag = false;
+
+    public static void main(String[] args) throws Exception {
+        Main.main(args);
+    }
 
     @Actor
     public void actor1(I_Result result) {
